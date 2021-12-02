@@ -163,6 +163,13 @@ type Props = EventProps & {
   doubleClickZoom?: boolean,
 
   /**
+   * If `true`, cooperative gestures mode is enabled - two fingers are
+   * required to pan on touch devices, and ctrl/cmd must be held while
+   * scrolling to zoom.
+   */
+  cooperativeGestures?: boolean,
+
+  /**
    * If `true`, the map will automatically resize
    * when the browser window resizes.
    */
@@ -309,6 +316,7 @@ class MapGL extends PureComponent<Props, State> {
     dragPan: true,
     keyboard: true,
     doubleClickZoom: true,
+    cooperativeGestures: false,
     trackResize: true,
     renderWorldCopies: true,
     maxTileCacheSize: null,
@@ -373,6 +381,7 @@ class MapGL extends PureComponent<Props, State> {
       dragPan: this.props.dragPan,
       keyboard: this.props.keyboard,
       doubleClickZoom: this.props.doubleClickZoom,
+      cooperativeGestures: this.props.cooperativeGestures,
       trackResize: this.props.trackResize,
       renderWorldCopies: this.props.renderWorldCopies,
       maxTileCacheSize: this.props.maxTileCacheSize,
